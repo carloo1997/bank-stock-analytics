@@ -55,7 +55,8 @@ def max_drawdown(series: pd.Series) -> float:
 
 
 def drawdown_series(close: pd.DataFrame) -> pd.DataFrame:
-    return close / close.cummax() - 1
+    """Drawdown per column, calculated independently for each stock."""
+    return close.apply(lambda s: s / s.cummax() - 1)
 
 
 def kpi_summary(close: pd.DataFrame) -> pd.DataFrame:
