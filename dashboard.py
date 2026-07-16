@@ -87,7 +87,7 @@ with tab3:
     c1, c2 = st.columns(2)
     with c1:
         dd = kpi.drawdown_series(close) * 100
-        fig = px.area(dd, title="Drawdown from Peak (%)")
+        fig = px.line(dd, title="Drawdown from Peak (%)")
         fig.update_layout(yaxis_title="Drawdown %", legend_title="")
         st.plotly_chart(fig, use_container_width=True)
     with c2:
